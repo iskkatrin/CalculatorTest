@@ -1,20 +1,23 @@
 package Calculatorandtest.Calculatortest;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.testng.annotations.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class CalculatorControllerTest {
+@Test
+public class CalculatorServiceTest {
+    @Autowired
+    private CalculatorServiceImpl calculatorServiceImpl = new CalculatorServiceImpl();
 
     @Test
     void addition() {
         Double num1 = 1.0;
         Double num2 = 2.0;
         ResponseEntity<String> response =
-                CalculatorControllerTest.addition(num1, num2);
+                CalculatorServiceImpl.addition(num1, num2);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("1.0 +  2.0 = 3.0", response.getBody());
@@ -25,7 +28,7 @@ class CalculatorControllerTest {
         Double num1 = 3.0;
         Double num2 = 2.0;
         ResponseEntity<String> response =
-                CalculatorControllerTest.subtract(num1, num2);
+                CalculatorServiceImpl.subtract(num1, num2);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("3.0 -  2.0 = 1.0", response.getBody());
@@ -36,7 +39,7 @@ class CalculatorControllerTest {
         Double num1 = 3.0;
         Double num2 = 2.0;
         ResponseEntity<String> response =
-                CalculatorControllerTest.subtract(num1, num2);
+                CalculatorServiceImpl.multiplication(num1, num2);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("3.0 *  2.0 = 6.0", response.getBody());
@@ -47,7 +50,7 @@ class CalculatorControllerTest {
         Double num1 = 3.0;
         Double num2 = 2.0;
         ResponseEntity<String> response =
-                CalculatorControllerTest.subtract(num1, num2);
+                CalculatorServiceImpl.divide(num1, num2);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals("3.0 /  2.0 = 1.5", response.getBody());

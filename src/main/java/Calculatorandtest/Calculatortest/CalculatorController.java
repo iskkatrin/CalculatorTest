@@ -28,7 +28,7 @@ public class CalculatorController {
      if (num1 == null || num2 == null) {
          return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
      }
-        Double result = calculatorService.divide(num1, num2);
+        Double result = calculatorService.addition(num1, num2);
         return ResponseEntity.ok(num1 + "-" + num2 + " = " + result);
     }
 
@@ -37,7 +37,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
         }
-        Double result = calculatorService.divide(num1, num2);
+        Double result = calculatorService.subtract(num1, num2);
         return ResponseEntity.ok(num1 + "-" + num2 + " = " + result);
     }
 
@@ -46,7 +46,7 @@ public class CalculatorController {
         if (num1 == null || num2 == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
         }
-        Double result = calculatorService.divide(num1, num2);
+        Double result = calculatorService.multiplication(num1, num2);
         return ResponseEntity.ok(num1 + "*" + num2 + " = " + result);
     }
 
