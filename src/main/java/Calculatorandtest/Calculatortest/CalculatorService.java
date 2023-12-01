@@ -1,13 +1,11 @@
 package Calculatorandtest.Calculatortest;
 
-import org.springframework.stereotype.Service;
-
 public interface CalculatorService {
-    public Double addition(Double num1, Double num2);
+    Integer addition(Integer num1, Integer num2);
 
-    public Double subtract(Double num1, Double num2);
+    Integer subtract(Integer num1, Integer num2);
 
-    public Double multiplication(Double num1, Double num2);
+    Integer multiplication(Integer num1, Integer num2);
 
-    public Double divide(Double num1, Double num2);
+    Double divide (Integer num1, Integer num2);
 }
