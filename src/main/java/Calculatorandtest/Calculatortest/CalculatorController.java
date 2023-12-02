@@ -24,29 +24,29 @@ public class CalculatorController {
     }
 
     @GetMapping("/plus")
-    public ResponseEntity<String> addition(@RequestParam("num1") Double num1, @RequestParam("num2") Double num2) {
+    public ResponseEntity<String> addition(@RequestParam("num1") Integer num1, @RequestParam("num2") Integer num2) {
      if (num1 == null || num2 == null) {
          return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
      }
-        Double result = calculatorService.divide(num1, num2);
+        Integer result = calculatorService.addition(num1, num2);
         return ResponseEntity.ok(num1 + "-" + num2 + " = " + result);
     }
 
     @GetMapping("/minus")
-    public ResponseEntity<String> subtract(@RequestParam("num1") Double num1, @RequestParam("num2") Double num2) {
+    public ResponseEntity<String> subtract(@RequestParam("num1") Integer num1, @RequestParam("num2") Integer num2) {
         if (num1 == null || num2 == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
         }
-        Double result = calculatorService.divide(num1, num2);
+        Integer result = calculatorService.subtract(num1, num2);
         return ResponseEntity.ok(num1 + "-" + num2 + " = " + result);
     }
 
     @GetMapping("/multiplication")
-    public ResponseEntity<String> multiplication(@RequestParam("num1") Double num1, @RequestParam("num2") Double num2) {
+    public ResponseEntity<String> multiplication(@RequestParam("num1") Integer num1, @RequestParam("num2") Integer num2) {
         if (num1 == null || num2 == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Ошибка: необходимо указать оба числа");
         }
-        Double result = calculatorService.divide(num1, num2);
+        Integer result = calculatorService.multiplication(num1, num2);
         return ResponseEntity.ok(num1 + "*" + num2 + " = " + result);
     }
 
@@ -62,7 +62,7 @@ public class CalculatorController {
         Double result = calculatorService.divide(num1, num2);
         return ResponseEntity.ok(num1 + " / " + num2 + " = " + result);
     }*/
-
+  @GetMapping("/divide")
     public double divide(double num1, double num2) {
         if (num2 == 0) {
             throw new IllegalArgumentException("Ошибка: деление на ноль");
