@@ -53,8 +53,8 @@ class CalculatorServiceImplTest {
     }
 
     @ParameterizedTest
-    @CsvSource(value = {"4,2,2", "10,5,2", "40,20,2"})
-    void dividePositive(Integer num1, Integer num2, Integer expected) {
+    @CsvSource(value = {"4,2,2.0", "10,5,2.0", "40,20,2.0"})
+    void dividePositive(Integer num1, Integer num2, Double expected) {
         assertEquals(expected, calculatorService.divide(num1, num2));
     }
 
